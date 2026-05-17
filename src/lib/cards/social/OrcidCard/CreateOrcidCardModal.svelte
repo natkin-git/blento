@@ -28,7 +28,7 @@
 	}
 </script>
 
-<Modal open={true} closeButton={false}>
+<Modal open={true} closeButton={false} contentProps={{ 'aria-label': 'Create ORCID card' }}>
 	<form
 		onsubmit={(event) => {
 			event.preventDefault();
