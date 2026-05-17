@@ -56,9 +56,8 @@ export function getOrcidId(input: string | undefined): string | undefined {
 
 	const trimmed = input.trim();
 	if (!trimmed) return;
-	const normalized = trimmed.toUpperCase();
 
-	const directMatch = normalized.match(/^(\d{4}-\d{4}-\d{4}-[\dX]{4})$/);
+	const directMatch = trimmed.toUpperCase().match(/^(\d{4}-\d{4}-\d{4}-[\dX]{4})$/);
 	if (directMatch) {
 		const id = directMatch[1];
 		return isValidOrcidId(id) ? id : undefined;

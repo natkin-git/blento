@@ -6,7 +6,7 @@
 	let { item }: ContentComponentProps = $props();
 
 	const isEditing = getCanEdit();
-	const id = $derived(getOrcidId(item.cardData.id ?? item.cardData.href) ?? item.cardData.id ?? '');
+	const id = $derived(getOrcidId(item.cardData.id ?? item.cardData.href) ?? '');
 	const href = $derived(id ? getOrcidUrl(id) : item.cardData.href || '#');
 </script>
 
