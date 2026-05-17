@@ -56,16 +56,15 @@ export function getOrcidId(input: string | undefined): string | undefined {
 
 	const trimmed = input.trim();
 	if (!trimmed) return;
-	const normalized = trimmed.toUpperCase();
 
-	const directMatch = normalized.match(/^(\d{4}-\d{4}-\d{4}-[\dX]{4})$/);
+	const directMatch = trimmed.match(/^(\d{4}-\d{4}-\d{4}-[\dXx]{4})$/);
 	if (directMatch) {
-		const id = directMatch[1];
+		const id = directMatch[1].toUpperCase();
 		return isValidOrcidId(id) ? id : undefined;
 	}
 
 	try {
-		const parsed = new URL(normalized);
+		const parsed = new URL(trimmed);
 		if (!/^(www\.)?orcid\.org$/i.test(parsed.hostname)) return;
 
 		const segments = parsed.pathname.split('/').filter(Boolean);

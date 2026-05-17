@@ -40,6 +40,7 @@
 		<Input
 			bind:value={inputValue}
 			placeholder="0000-0002-1825-0097 or https://orcid.org/0000-0002-1825-0097"
+			aria-label="ORCID iD or ORCID URL"
 			class="mt-4"
 		/>
 
