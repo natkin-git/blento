@@ -14,11 +14,8 @@
 	{href}
 	target="_blank"
 	rel="noopener noreferrer"
-	class={[
-		'flex h-full w-full items-center justify-between gap-3 rounded-2xl p-4 transition-colors',
-		'hover:bg-accent-100/20',
-		isEditing() && 'pointer-events-none'
-	]}
+	class="hover:bg-accent-100/20 flex h-full w-full items-center justify-between gap-3 rounded-2xl p-4 transition-colors"
+	class:pointer-events-none={isEditing()}
 >
 	<div
 		class="text-base-950 inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-[#A6CE39] text-xs font-bold"

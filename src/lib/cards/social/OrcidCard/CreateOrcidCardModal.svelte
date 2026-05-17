@@ -7,9 +7,10 @@
 	let { item = $bindable(), oncreate, oncancel }: CreationModalComponentProps = $props();
 
 	let errorMessage = $state('');
+	let inputValue = $state(item.cardData.id || item.cardData.href || '');
 
 	function submit() {
-		const id = getOrcidId(item.cardData.id || item.cardData.href);
+		const id = getOrcidId(inputValue);
 
 		if (!id) {
 			errorMessage = 'Please enter a valid ORCID iD or ORCID URL';
@@ -37,7 +38,7 @@
 	>
 		<Subheading>Enter an ORCID iD or ORCID URL</Subheading>
 		<Input
-			bind:value={item.cardData.id}
+			bind:value={inputValue}
 			placeholder="0000-0002-1825-0097 or https://orcid.org/0000-0002-1825-0097"
 			class="mt-4"
 		/>
